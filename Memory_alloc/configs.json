@@ -1,0 +1,15 @@
+{
+    "config_data":
+        {
+            "amount_of_refs" : 100,
+            "amount_of_series" : 100,
+            "amount_of_pages" : 20,
+            "amount_of_frames" : 
+            [
+                4,
+                8,
+                12
+            ],
+            "random_seed" : 9237
+        }
+}

@@ -1,0 +1,10 @@
+{
+    "config_data":
+        {
+            "amount_of_series" : 100,
+            "amount_of_proc" : 100,
+            "max_await" : 200,
+            "max_exec" : 20,
+            "random_seed" : 111111
+        }
+}
