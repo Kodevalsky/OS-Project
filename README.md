@@ -1,2 +1,2 @@
 # OS-Project
-A project made for Operational Systems on Uni
+A project made for Operating Systems on Uni
