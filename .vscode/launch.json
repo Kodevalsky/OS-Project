@@ -4,8 +4,10 @@
             "name": "Python: File",
             "type": "python",
             "request": "launch",
+            "args": [
+                "path=list.txt"
+            ],
             "program": "${file}",
-            "justMyCode": true
         }
     ]
 }

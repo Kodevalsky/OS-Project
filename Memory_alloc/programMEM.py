@@ -1,16 +1,12 @@
-
 import json as js
-
+import argparse as ap
 import copy as cp
-
 import numpy as np 
-
 import matplotlib.pyplot as plt
+import refsGenerator as rg
+import os
 
-
-pathToList = "list.txt"
-
-with open("/home/kovalsky/Coding/so_project/Memory_alloc/configs.json", 'r') as config:
+with open(os.path.dirname(os.path.realpath(__file__)) + "/configs.json", 'r') as config:
     confVals = js.load(config)
 
 tpf_fifo = [[] for i in range(0,len(confVals["config_data"]["amount_of_frames"]))]
@@ -118,14 +114,21 @@ def getStats(data, name):
     plt.savefig(filename)
     plt.show()
 
-readProcessList(pathToList)
 
-copy = cp.deepcopy(refs_data)
-copy2 = cp.deepcopy(refs_data)
+if __name__=='__main__':
+    parser = ap.ArgumentParser()
+    parser.add_argument('path', help="Path to the file with references")
+    args = parser.parse_args()
+    rg.generateRefs(path=args.path)
+
+    readProcessList(args.path)
+
+    copy = cp.deepcopy(refs_data)
+    copy2 = cp.deepcopy(refs_data)
 
 
-setSimulation(fifo, tpf_fifo, copy)
-setSimulation(lru, tpf_lru, copy2)
+    setSimulation(fifo, tpf_fifo, copy)
+    setSimulation(lru, tpf_lru, copy2)
 
-getStats(tpf_fifo, "fifo")
-getStats(tpf_lru, "lru")
+    getStats(tpf_fifo, "fifo")
+    getStats(tpf_lru, "lru")
